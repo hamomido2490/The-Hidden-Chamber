@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔐 لوحة التحكم السرية | غرفة الأسرار</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <style>
+        /* ═══════════════════════════════════════════════════════════ */
+        /* CYBERPUNK DASHBOARD DESIGN */
+        /* ═══════════════════════════════════════════════════════════ */
+        
+        :root {
+            --neon-cyan: #00d9ff;
+            --neon-purple: #a855f7;
+            --neon-pink: #ec4899;
+            --neon-gold: #fbbf24;
+            --neon-green: #10b981;
+            --neon-red: #ef4444;
+            
+            --bg-deep: #0a0e27;
+            --bg-dark: #131829;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Tajawal', sans-serif;
+            background: var(--bg-deep);
+            color: #e5e7eb;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Cosmic Background */
+        .cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at top, rgba(168, 85, 247, 0.15), transparent),
+                radial-gradient(ellipse at bottom, rgba(0, 217, 255, 0.1), transparent);
+        }
+        
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                radial-gradient(2px 2px at 60px 70px, #fff, transparent),
+                radial-gradient(1px 1px at 50px 50px, #ddd, transparent),
+                radial-gradient(1px 1px at 130px 80px, #fff, transparent);
+            background-size: 200px 200px;
+            opacity: 0.2;
+            animation: starsMove 120s linear infinite;
+        }
+        
+        @keyframes starsMove {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-100px, -100px); }
+        }
+        
+        /* Login Screen */
+        .login-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(20px);
+        }
+        
+        .login-screen.hidden {
+            display: none;
+        }
+        
+        .login-box {
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 400px;
+            width: 90%;
+            backdrop-filter: blur(20px);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.5),
+                0 0 80px rgba(0, 217, 255, 0.2);
+            text-align: center;
+        }
+        
+        .login-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: iconGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes iconGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 10px var(--neon-cyan));
+                transform: scale(1);
+            }
+            50% { 
+                filter: drop-shadow(0 0 30px var(--neon-purple));
+                transform: scale(1.1);
+            }
+        }
+        
+        .login-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--neon-cyan);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(0, 217, 255, 0.6);
+        }
+        
+        .login-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .login-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--glass-border);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .login-input:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 217, 255, 0.4);
+        }
+        
+        .error-message {
+            color: var(--neon-red);
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+            animation: shake 0.5s;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        
+        /* Main Dashboard */
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            display: none;
+        }
+        
+        .dashboard.active {
+            display: block;
+        }
+        
+        /* Header */
+        .dashboard-header {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .dashboard-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .title-icon {
+            font-size: 1.3em;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .logout-btn {
+            padding: 0.75rem 1.5rem;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid var(--neon-red);
+            border-radius: 12px;
+            color: var(--neon-red);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .logout-btn:hover {
+            background: rgba(239, 68, 68, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .last-update {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .live-indicator {
+            width: 8px;
+            height: 8px;
+            background: var(--neon-green);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { 
+                opacity: 1;
+                box-shadow: 0 0 10px var(--neon-green);
+            }
+            50% { 
+                opacity: 0.3;
+                box-shadow: 0 0 20px var(--neon-green);
+            }
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 8px 30px rgba(0, 217, 255, 0.2);
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+            animation: shimmer 3s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .stat-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-change {
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .stat-change.positive {
+            color: var(--neon-green);
+        }
+        
+        .stat-change.negative {
+            color: var(--neon-red);
+        }
+        
+        /* Chart Cards */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .chart-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(20px);
+        }
+        
+        .chart-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .chart-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+        
+        /* Tables */
+        .data-table {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(20px);
+            margin-bottom: 2rem;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        thead {
+            background: rgba(0, 217, 255, 0.1);
+        }
+        
+        th {
+            padding: 1rem;
+            text-align: right;
+            font-weight: 600;
+            color: var(--neon-cyan);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        [dir="ltr"] th {
+            text-align: left;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .rank-1 {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #000;
+        }
+        
+        .rank-2 {
+            background: linear-gradient(135deg, #d1d5db, #9ca3af);
+            color: #000;
+        }
+        
+        .rank-3 {
+            background: linear-gradient(135deg, #fb923c, #f97316);
+            color: #fff;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            table {
+                font-size: 0.85rem;
+            }
+            
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cosmic Background -->
+    <div class="cosmic-bg">
+        <div class="stars"></div>
+    </div>
+
+    <!-- Login Screen -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-box">
+            <div class="login-icon">🔐</div>
+            <h1 class="login-title">لوحة التحكم السرية</h1>
+            <p class="login-subtitle">للمطورين المصرح لهم فقط</p>
+            
+            <form id="loginForm">
+                <input 
+                    type="password" 
+                    id="passwordInput" 
+                    class="login-input" 
+                    placeholder="أدخل كلمة المرور"
+                    autocomplete="off"
+                    required
+                >
+                <button type="submit" class="login-btn">
+                    🚀 دخول
+                </button>
+            </form>
+            
+            <p class="error-message" id="errorMessage">
+                ❌ كلمة المرور غير صحيحة
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div class="dashboard" id="dashboard">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-top">
+                <h1 class="dashboard-title">
+                    <span class="title-icon">📊</span>
+                    لوحة التحكم الإحصائية
+                </h1>
+                <button class="logout-btn" id="logoutBtn">
+                    🚪 تسجيل الخروج
+                </button>
+            </div>
+            <div class="last-update">
+                <div class="live-indicator"></div>
+                <span>آخر تحديث: <span id="lastUpdate">---</span></span>
+            </div>
+        </header>
+
+        <!-- Main Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-icon" style="color: var(--neon-cyan);">👁️</span>
+                    <span class="stat-label">إجمالي الزوار</span>
+                </div>
+                <div class="stat-value" id="totalVisitors">0</div>
+                <div class="stat-change positive">
+                    <span>↗</span>
+                    <span id="visitorsChange">+0</span>
+                    <span>اليوم</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-icon" style="color: var(--neon-purple);">✨</span>
+                    <span class="stat-label">التحليلات المكتملة</span>
+                </div>
+                <div class="stat-value" id="totalCompleted">0</div>
+                <div class="stat-change positive">
+                    <span>↗</span>
+                    <span id="completedChange">+0</span>
+                    <span>اليوم</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-icon" style="color: var(--neon-green);">📈</span>
+                    <span class="stat-label">معدل الإكمال</span>
+                </div>
+                <div class="stat-value" id="completionRate">0%</div>
+                <div class="stat-change">
+                    <span id="rateChange">من إجمالي الزوار</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-icon" style="color: var(--neon-gold);">⏱️</span>
+                    <span class="stat-label">متوسط الوقت</span>
+                </div>
+                <div class="stat-value" id="avgTime">7:32</div>
+                <div class="stat-change">
+                    <span>دقيقة لإكمال التحليل</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="charts-grid">
+            <!-- Zodiac Distribution -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3 class="chart-title">
+                        <span>⭐</span>
+                        توزيع الأبراج الفلكية
+                    </h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="zodiacChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Soul Colors -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3 class="chart-title">
+                        <span>🎨</span>
+                        توزيع ألوان الروح
+                    </h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="colorsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Big Five Average -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3 class="chart-title">
+                        <span>🧬</span>
+                        متوسط أبعاد Big Five
+                    </h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="bigFiveChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Visitors Timeline -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3 class="chart-title">
+                        <span>📉</span>
+                        الزيارات خلال آخر 7 أيام
+                    </h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="timelineChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Personalities Table -->
+        <div class="data-table">
+            <div class="chart-header">
+                <h3 class="chart-title">
+                    <span>🏆</span>
+                    أكثر الأبراج زيارة
+                </h3>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>الترتيب</th>
+                        <th>البرج</th>
+                        <th>عدد المستخدمين</th>
+                        <th>النسبة</th>
+                        <th>التوزيع</th>
+                    </tr>
+                </thead>
+                <tbody id="zodiacTable">
+                    <!-- Generated dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="module">
+        // ═══════════════════════════════════════════════════════════
+        // STATS DASHBOARD LOGIC (Secure Version)
+        // ═══════════════════════════════════════════════════════════
+        
+        const CONFIG = {
+            refreshInterval: 30000, // 30 seconds
+        };
+
+        // ─────────────────────────────────────────────────────────
+        // Authentication
+        // ─────────────────────────────────────────────────────────
+        const loginForm = document.getElementById('loginForm');
+        const loginScreen = document.getElementById('loginScreen');
+        const dashboard = document.getElementById('dashboard');
+        const errorMessage = document.getElementById('errorMessage');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const password = document.getElementById('passwordInput').value;
+            
+            try {
+                const response = await fetch('/api/auth', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    sessionStorage.setItem('authenticated', 'true');
+                    loginScreen.classList.add('hidden');
+                    dashboard.classList.add('active');
+                    initDashboard();
+                } else {
+                    errorMessage.classList.add('show');
+                    setTimeout(() => errorMessage.classList.remove('show'), 3000);
+                }
+            } catch (error) {
+                console.error('Auth error:', error);
+                errorMessage.textContent = '❌ خطأ في الاتصال';
+                errorMessage.classList.add('show');
+            }
+        });
+
+        logoutBtn.addEventListener('click', () => {
+            sessionStorage.removeItem('authenticated');
+            location.reload();
+        });
+
+        // Check if already authenticated
+        if (sessionStorage.getItem('authenticated') === 'true') {
+            loginScreen.classList.add('hidden');
+            dashboard.classList.add('active');
+            initDashboard();
+        }
+
+        // ─────────────────────────────────────────────────────────
+        // Dashboard Initialization
+        // ─────────────────────────────────────────────────────────
+        async function initDashboard() {
+            await loadStats();
+            initCharts();
+            startAutoRefresh();
+        }
+
+        // ─────────────────────────────────────────────────────────
+        // Load Statistics
+        // ─────────────────────────────────────────────────────────
+        async function loadStats() {
+            try {
+                // Fetch from API (without .js extension)
+                const visitorsRes = await fetch('/api/increment-visitor');
+                const completedRes = await fetch('/api/increment-completed');
+                
+                const visitorsData = await visitorsRes.json();
+                const completedData = await completedRes.json();
+                
+                const totalVisitors = visitorsData.count || 0;
+                const totalCompleted = completedData.count || 0;
+                const completionRate = totalVisitors > 0 
+                    ? ((totalCompleted / totalVisitors) * 100).toFixed(1) 
+                    : 0;
+                
+                // Animate counters
+                animateCounter('totalVisitors', totalVisitors);
+                animateCounter('totalCompleted', totalCompleted);
+                
+                document.getElementById('completionRate').textContent = `${completionRate}%`;
+                document.getElementById('visitorsChange').textContent = `+${Math.floor(totalVisitors * 0.05)}`;
+                document.getElementById('completedChange').textContent = `+${Math.floor(totalCompleted * 0.03)}`;
+                
+                // Update timestamp
+                const now = new Date();
+                document.getElementById('lastUpdate').textContent = now.toLocaleTimeString('ar-EG');
+                
+                // Load mock data for charts
+                updateChartsData();
+                
+            } catch (error) {
+                console.error('Failed to load stats:', error);
+            }
+        }
+
+        function animateCounter(elementId, target) {
+            const element = document.getElementById(elementId);
+            let current = 0;
+            const increment = Math.ceil(target / 50);
+            const duration = 2000;
+            const stepTime = duration / (target / increment);
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = current.toLocaleString('ar-EG');
+            }, stepTime);
+        }
+
+        // ─────────────────────────────────────────────────────────
+        // Charts Initialization
+        // ─────────────────────────────────────────────────────────
+        let charts = {};
+
+        function initCharts() {
+            // Zodiac Distribution (Pie)
+            const zodiacCtx = document.getElementById('zodiacChart').getContext('2d');
+            charts.zodiac = new Chart(zodiacCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['الحمل', 'الثور', 'الجوزاء', 'السرطان', 'الأسد', 'العذراء', 
+                             'الميزان', 'العقرب', 'القوس', 'الجدي', 'الدلو', 'الحوت'],
+                    datasets: [{
+                        data: [8, 12, 10, 7, 15, 9, 11, 6, 8, 10, 7, 9],
+                        backgroundColor: [
+                            '#ef4444', '#f97316', '#fbbf24', '#84cc16',
+                            '#10b981', '#14b8a6', '#06b6d4', '#0ea5e9',
+                            '#3b82f6', '#6366f1', '#8b5cf6', '#a855f7'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#e5e7eb', padding: 15 }
+                        }
+                    }
+                }
+            });
+
+            // Soul Colors (Bar)
+            const colorsCtx = document.getElementById('colorsChart').getContext('2d');
+            charts.colors = new Chart(colorsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['الأحمر', 'الأزرق', 'الأصفر', 'الأخضر'],
+                    datasets: [{
+                        label: 'عدد المستخدمين',
+                        data: [25, 35, 20, 30],
+                        backgroundColor: [
+                            'rgba(239, 68, 68, 0.7)',
+                            'rgba(0, 217, 255, 0.7)',
+                            'rgba(251, 191, 36, 0.7)',
+                            'rgba(16, 185, 129, 0.7)'
+                        ],
+                        borderColor: [
+                            '#ef4444',
+                            '#00d9ff',
+                            '#fbbf24',
+                            '#10b981'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#9ca3af' },
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                        },
+                        x: {
+                            ticks: { color: '#9ca3af' },
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            // Big Five (Radar)
+            const bigFiveCtx = document.getElementById('bigFiveChart').getContext('2d');
+            charts.bigFive = new Chart(bigFiveCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['الانفتاح', 'الضمير', 'الانبساطية', 'الطيبة', 'العصابية'],
+                    datasets: [{
+                        label: 'المتوسط',
+                        data: [65, 72, 58, 75, 45],
+                        backgroundColor: 'rgba(0, 217, 255, 0.2)',
+                        borderColor: '#00d9ff',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#00d9ff',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#00d9ff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: { color: '#9ca3af', backdropColor: 'transparent' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            pointLabels: { color: '#e5e7eb', font: { size: 12 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            // Timeline (Line)
+            const timelineCtx = document.getElementById('timelineChart').getContext('2d');
+            charts.timeline = new Chart(timelineCtx, {
+                type: 'line',
+                data: {
+                    labels: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+                    datasets: [{
+                        label: 'الزوار',
+                        data: [45, 52, 48, 65, 70, 85, 90],
+                        borderColor: '#00d9ff',
+                        backgroundColor: 'rgba(0, 217, 255, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#9ca3af' },
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                        },
+                        x: {
+                            ticks: { color: '#9ca3af' },
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
+        function updateChartsData() {
+            // Update zodiac table
+            const zodiacData = [
+                { name: 'الأسد', users: 15, percentage: 13.6 },
+                { name: 'الثور', users: 12, percentage: 10.9 },
+                { name: 'الميزان', users: 11, percentage: 10.0 },
+                { name: 'الجوزاء', users: 10, percentage: 9.1 },
+                { name: 'الجدي', users: 10, percentage: 9.1 }
+            ];
+
+            const tableBody = document.getElementById('zodiacTable');
+            tableBody.innerHTML = '';
+
+            zodiacData.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><span class="rank-badge rank-${index + 1}">${index + 1}</span></td>
+                    <td>${item.name}</td>
+                    <td>${item.users.toLocaleString('ar-EG')}</td>
+                    <td>${item.percentage}%</td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${item.percentage}%"></div>
+                        </div>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // ─────────────────────────────────────────────────────────
+        // Auto Refresh
+        // ─────────────────────────────────────────────────────────
+        function startAutoRefresh() {
+            setInterval(() => {
+                loadStats();
+            }, CONFIG.refreshInterval);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>غرفة الأسرار | اكتشف حقيقة شخصيتك الخفية</title>
+    <meta name="description" content="رحلة غامضة لاستكشاف أعماق شخصيتك من خلال علم النفس الحديث والألوان. تحليل مجاني ودقيق بدون تسجيل.">
+    <meta name="keywords" content="تحليل شخصية, Big Five, اختبار نفسي, الألوان النفسية, البرج الفلكي">
+    <meta name="author" content="Eng. Mohammed Tarek">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="غرفة الأسرار | The Hidden Chamber">
+    <meta property="og:description" content="اكتشف الأسرار المخفية في شخصيتك من خلال رحلة علمية غامضة">
+    <meta property="og:image" content="/assets/images/og-image.jpg">
+    <meta property="og:url" content="https://hidden-chamber.vercel.app">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="غرفة الأسرار | The Hidden Chamber">
+    <meta name="twitter:description" content="اكتشف الأسرار المخفية في شخصيتك">
+    <meta name="twitter:image" content="/assets/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/images/favicon.svg">
+    
+    <!-- Fonts (with display=swap for performance) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <!-- Mystical Background -->
+    <div class="cosmic-bg">
+        <div class="stars-layer layer-1"></div>
+        <div class="stars-layer layer-2"></div>
+        <div class="stars-layer layer-3"></div>
+        <div class="nebula-glow"></div>
+    </div>
+
+    <!-- Ancient Symbols Overlay -->
+    <div class="ancient-symbols">
+        <span class="symbol symbol-1">◬</span>
+        <span class="symbol symbol-2">◭</span>
+        <span class="symbol symbol-3">◮</span>
+        <span class="symbol symbol-4">◯</span>
+    </div>
+
+    <!-- Language Toggle -->
+    <button class="lang-toggle" id="langToggle" aria-label="تبديل اللغة">
+        <span class="lang-icon">🌐</span>
+        <span class="lang-text">English</span>
+    </button>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="site-header" id="header">
+            <div class="logo-container">
+                <div class="logo-glow"></div>
+                <h1 class="site-title">
+                    <span class="title-icon">🔮</span>
+                    <span class="title-text" data-translate="site_title">غرفة الأسرار</span>
+                </h1>
+                <p class="site-subtitle" data-translate="site_subtitle">حيث تلتقي الأسرار القديمة بعلم النفس الحديث</p>
+            </div>
+            
+            <!-- Live Counters -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-icon">👁️</span>
+                    <span class="stat-value" id="visitorCount">---</span>
+                    <span class="stat-label" data-translate="visitors">زائر</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-icon">✨</span>
+                    <span class="stat-value" id="completedCount">---</span>
+                    <span class="stat-label" data-translate="completed">أكملوا الرحلة</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Welcome Section -->
+        <section class="welcome-section glass-card" id="welcomeSection">
+            <div class="card-glow"></div>
+            <h2 class="section-title" data-translate="welcome_title">
+                🌙 مرحباً بك في البُعد المخفي
+            </h2>
+            <p class="mystical-text" data-translate="welcome_text">
+                خلف هذا الباب يكمن سرّ لم يُكشف بعد... <strong>شخصيتك الحقيقية</strong>.
+                <br>رحلة تستغرق 7 دقائق فقط، لكنها ستغيّر نظرتك لنفسك إلى الأبد.
+            </p>
+            
+            <!-- Special Feature Button -->
+            <div class="special-feature">
+                <button class="coffee-reading-btn" id="coffeeReadingBtn">
+                    <span class="btn-icon">☕</span>
+                    <span class="btn-text" data-translate="coffee_reading">اطلب قراءة فنجانك</span>
+                    <span class="btn-badge" data-translate="coming_soon">قريباً</span>
+                </button>
+            </div>
+
+            <!-- Birthdate Input -->
+            <div class="birthdate-section">
+                <label class="mystical-label" data-translate="birthdate_label">
+                    📅 أدخل تاريخ ميلادك الحقيقي (هذا سرّك وحدك)
+                </label>
+                <input type="date" 
+                       id="birthdateInput" 
+                       class="mystical-input"
+                       max="2020-12-31"
+                       required>
+                <p class="privacy-note" data-translate="privacy_note">
+                    🔒 لن يتم حفظ أي بيانات شخصية. هذا وعد.
+                </p>
+            </div>
+
+            <!-- Start Button -->
+            <button class="cta-button" id="startJourneyBtn" disabled>
+                <span class="btn-glow"></span>
+                <span class="btn-content">
+                    <span class="btn-icon">🚪</span>
+                    <span class="btn-text" data-translate="start_journey">افتح الباب</span>
+                </span>
+            </button>
+        </section>
+
+        <!-- Quiz Section (Hidden Initially) -->
+        <section class="quiz-section" id="quizSection" style="display: none;">
+            <div class="progress-container">
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressBar"></div>
+                    <div class="progress-glow"></div>
+                </div>
+                <div class="progress-info">
+                    <span class="progress-text" data-translate="question">سؤال</span>
+                    <span class="progress-current" id="currentQuestion">1</span>
+                    <span>/</span>
+                    <span class="progress-total">40</span>
+                </div>
+            </div>
+
+            <div class="question-card glass-card">
+                <div class="card-glow"></div>
+                <div class="question-header">
+                    <span class="question-category" id="questionCategory"></span>
+                    <span class="question-number" id="questionNumber">1/40</span>
+                </div>
+                <h3 class="question-text" id="questionText"></h3>
+                <div class="answers-grid" id="answersGrid"></div>
+            </div>
+
+            <div class="quiz-navigation">
+                <button class="nav-btn nav-prev" id="prevBtn" disabled>
+                    <span>←</span>
+                    <span data-translate="previous">السابق</span>
+                </button>
+                <button class="nav-btn nav-next" id="nextBtn" disabled>
+                    <span data-translate="next">التالي</span>
+                    <span>→</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Loading Section -->
+        <section class="loading-section" id="loadingSection" style="display: none;">
+            <div class="loading-card glass-card">
+                <div class="quantum-loader">
+                    <div class="quantum-ring ring-1"></div>
+                    <div class="quantum-ring ring-2"></div>
+                    <div class="quantum-ring ring-3"></div>
+                    <div class="quantum-core">🔮</div>
+                </div>
+                <h2 class="loading-title" data-translate="analyzing">نحلل أسرارك...</h2>
+                <p class="loading-text" id="loadingText"></p>
+                <div class="loading-progress">
+                    <div class="loading-bar" id="loadingBar"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="privacy-badge">
+                    <span class="badge-icon">🔒</span>
+                    <span data-translate="privacy_badge">خصوصيتك مضمونة 100%</span>
+                </div>
+                <nav class="footer-nav">
+                    <a href="privacy.html" data-translate="privacy_policy">سياسة الخصوصية</a>
+                </nav>
+                <p class="copyright">
+                    © 2025 <strong>The Hidden Chamber</strong>
+                    <br>
+                    <span class="creator-credit">
+                        Designed & Developed by <strong>Eng. Mohammed Tarek</strong>
+                    </span>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Coffee Reading Modal -->
+    <div class="modal" id="coffeeModal" style="display: none;">
+        <div class="modal-content glass-card">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div class="modal-header">
+                <span class="modal-icon">☕</span>
+                <h3 data-translate="coffee_modal_title">قراءة الفنجان - ميزة قادمة</h3>
+            </div>
+            <div class="modal-body">
+                <p data-translate="coffee_modal_text">
+                    هذه الميزة الغامضة قيد التطوير حالياً...
+                    <br>اترك بياناتك وسنتواصل معك عندما تُفتح البوابة.
+                </p>
+                <form class="coffee-form" id="coffeeForm">
+                    <input type="text" 
+                           placeholder="اسمك الأول" 
+                           data-translate-placeholder="name_placeholder"
+                           class="mystical-input" 
+                           required>
+                    <button type="submit" class="cta-button cta-small">
+                        <span class="btn-icon">📱</span>
+                        <span data-translate="whatsapp_notify">أبلغني عبر واتساب</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/main.js" type="module"></script>
+    <script src="/assets/js/story-engine.js" type="module"></script>
+</body>
+</html>

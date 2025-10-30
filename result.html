@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتيجتك الغامضة | غرفة الأسرار</title>
+    <meta name="description" content="اكتشف أسرار شخصيتك المخفية">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/images/favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="result-page">
+    <!-- Cosmic Background -->
+    <div class="cosmic-bg">
+        <div class="stars-layer layer-1"></div>
+        <div class="stars-layer layer-2"></div>
+        <div class="stars-layer layer-3"></div>
+        <div class="nebula-glow"></div>
+    </div>
+
+    <!-- Language Toggle -->
+    <button class="lang-toggle" id="langToggle" aria-label="تبديل اللغة">
+        <span class="lang-icon">🌐</span>
+        <span class="lang-text">English</span>
+    </button>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="result-header">
+            <a href="index.html" class="back-link">
+                <span>←</span>
+                <span data-translate="back_home">العودة للبداية</span>
+            </a>
+            <h1 class="result-title">
+                <span class="title-icon">✨</span>
+                <span data-translate="your_secret">سرّك المكشوف</span>
+            </h1>
+        </header>
+
+        <!-- User Info Card -->
+        <section class="user-info-card glass-card">
+            <div class="card-glow"></div>
+            <div class="user-avatar">
+                <div class="avatar-ring"></div>
+                <span class="avatar-icon" id="zodiacIcon">♈</span>
+            </div>
+            <div class="user-details">
+                <p class="user-age">
+                    <span data-translate="age_label">عمرك:</span>
+                    <strong id="userAge">--</strong>
+                    <span data-translate="years">سنة</span>
+                </p>
+                <h2 class="user-zodiac" id="userZodiac">برج الحمل</h2>
+                <p class="zodiac-dates" id="zodiacDates">مارس 21 - أبريل 19</p>
+            </div>
+        </section>
+
+        <!-- Zodiac Card -->
+        <section class="zodiac-card glass-card" id="zodiacCard">
+            <div class="card-glow zodiac-glow"></div>
+            <div class="zodiac-header">
+                <span class="zodiac-symbol" id="zodiacSymbol">♈</span>
+                <h3 class="zodiac-name" id="zodiacName">الحمل</h3>
+                <span class="zodiac-element" id="zodiacElement">🔥 ناري</span>
+            </div>
+            <p class="zodiac-description" id="zodiacDescription"></p>
+            <div class="zodiac-traits">
+                <h4 data-translate="key_traits">الصفات الرئيسية:</h4>
+                <div class="traits-grid" id="traitsGrid"></div>
+            </div>
+        </section>
+
+        <!-- Soul Color Card -->
+        <section class="soul-color-card glass-card">
+            <div class="card-glow color-glow"></div>
+            <h3 class="section-title">
+                <span class="title-icon">🎨</span>
+                <span data-translate="soul_color_title">لون روحك</span>
+            </h3>
+            <div class="color-display">
+                <div class="color-orb" id="colorOrb">
+                    <div class="color-pulse"></div>
+                </div>
+                <h4 class="color-name" id="colorName">الأزرق الروحي</h4>
+            </div>
+            <p class="color-meaning" id="colorMeaning"></p>
+        </section>
+
+        <!-- Big Five Analysis -->
+        <section class="big-five-section">
+            <h3 class="section-title">
+                <span class="title-icon">🧬</span>
+                <span data-translate="personality_dimensions">أبعاد شخصيتك الخمسة</span>
+            </h3>
+            <div class="dimensions-grid" id="dimensionsGrid">
+                <!-- سيتم توليدها ديناميكيًا -->
+            </div>
+        </section>
+
+        <!-- Personal Story -->
+        <section class="story-section glass-card">
+            <div class="card-glow"></div>
+            <h3 class="section-title">
+                <span class="title-icon">📜</span>
+                <span data-translate="your_story">قصتك الفريدة</span>
+            </h3>
+            <div class="story-content" id="storyContent">
+                <!-- سيتم ملؤها من story-engine.js -->
+            </div>
+        </section>
+
+        <!-- Similar Personalities -->
+        <section class="similar-section">
+            <h3 class="section-title">
+                <span class="title-icon">👥</span>
+                <span data-translate="similar_people">أشخاص يشبهونك</span>
+            </h3>
+            <p class="similar-intro" data-translate="similar_intro">
+                هؤلاء الشخصيات التاريخية والمشهورة يشتركون معك في نفس البرج والخصائص النفسية:
+            </p>
+            <div class="personalities-grid" id="personalitiesGrid">
+                <!-- سيتم توليدها ديناميكيًا -->
+            </div>
+        </section>
+
+        <!-- Share Section -->
+        <section class="share-section glass-card">
+            <div class="card-glow"></div>
+            <h3 class="section-title" data-translate="share_title">شارك نتيجتك</h3>
+            <p class="share-text" data-translate="share_text">
+                هل أعجبتك الرحلة؟ شاركها مع أصدقائك:
+            </p>
+            <div class="share-buttons">
+                <button class="share-btn twitter" data-share="twitter">
+                    <span class="btn-icon">🐦</span>
+                    <span>Twitter</span>
+                </button>
+                <button class="share-btn facebook" data-share="facebook">
+                    <span class="btn-icon">👍</span>
+                    <span>Facebook</span>
+                </button>
+                <button class="share-btn whatsapp" data-share="whatsapp">
+                    <span class="btn-icon">💬</span>
+                    <span>WhatsApp</span>
+                </button>
+                <button class="share-btn telegram" data-share="telegram">
+                    <span class="btn-icon">✈️</span>
+                    <span>Telegram</span>
+                </button>
+                <button class="share-btn native" data-share="native">
+                    <span class="btn-icon">📤</span>
+                    <span data-translate="share">مشاركة</span>
+                </button>
+            </div>
+        </section>
+
+<!-- بعد قسم المشاركة -->
+<section class="reviews-section glass-card">
+    <div class="card-glow"></div>
+    <h3 class="section-title">
+        <span class="title-icon">💬</span>
+        <span data-translate="reviews_title">آراء الزوار</span>
+    </h3>
+    <p class="reviews-intro" data-translate="reviews_intro">
+        شارك تجربتك مع الآخرين — اسمك كما تريد!
+    </p>
+    
+    <!-- نموذج الإضافة -->
+    <form class="review-form" id="reviewForm">
+        <input type="text" 
+               placeholder="اسمك المستعار (اختياري)" 
+               data-translate-placeholder="alias_placeholder"
+               class="mystical-input"
+               maxlength="30">
+        <div class="rating-input">
+            <label>تقييمك:</label>
+            <div class="stars" id="ratingStars">
+                <span data-value="1">★</span>
+                <span data-value="2">★</span>
+                <span data-value="3">★</span>
+                <span data-value="4">★</span>
+                <span data-value="5">★</span>
+            </div>
+            <input type="hidden" id="ratingValue" name="rating" value="5">
+        </div>
+        <textarea 
+            placeholder="شاركنا تجربتك..." 
+            data-translate-placeholder="review_placeholder"
+            class="mystical-textarea"
+            rows="3"
+            maxlength="200"
+            required></textarea>
+        <button type="submit" class="cta-button cta-small">
+            <span data-translate="submit_review">أضف رأيك</span>
+        </button>
+    </form>
+
+    <!-- عرض التقييمات -->
+    <div class="reviews-list" id="reviewsList">
+        <!-- سيتم توليدها ديناميكيًا -->
+    </div>
+</section>
+        <!-- Retake Button -->
+        <section class="retake-section">
+            <button class="cta-button cta-secondary" id="retakeBtn">
+                <span class="btn-icon">🔄</span>
+                <span data-translate="retake">ابدأ رحلة جديدة</span>
+            </button>
+        </section>
+
+        <!-- Notification Prompt -->
+        <section class="notification-prompt glass-card" id="notificationPrompt" style="display: none;">
+            <div class="card-glow"></div>
+            <span class="prompt-icon">🔔</span>
+            <h4 data-translate="notification_title">هل تريد معرفة المزيد؟</h4>
+            <p data-translate="notification_text">
+                سنرسل لك إشعارات غامضة من حين لآخر... إذا كنت مستعداً.
+            </p>
+            <div class="prompt-buttons">
+                <button class="cta-button cta-small" id="enableNotifications">
+                    <span data-translate="enable_notifications">نعم، أبلغني</span>
+                </button>
+                <button class="cta-button cta-ghost cta-small" id="declineNotifications">
+                    <span data-translate="maybe_later">ربما لاحقاً</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="privacy-badge">
+                    <span class="badge-icon">🔒</span>
+                    <span data-translate="privacy_badge">خصوصيتك مضمونة 100%</span>
+                </div>
+                <nav class="footer-nav">
+                    <a href="privacy.html" data-translate="privacy_policy">سياسة الخصوصية</a>
+                </nav>
+                <p class="copyright">
+                    © 2025 <strong>The Hidden Chamber</strong>
+                    <br>
+                    <span class="creator-credit">
+                        Designed & Developed by <strong>Eng. Mohammed Tarek</strong>
+                    </span>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Ad Container (will be populated by main.js if needed) -->
+    <div class="ad-container ad-sidebar">
+        <div class="ad-label" data-translate="advertisement">إعلان</div>
+        <div class="ad-content" id="adContent">
+            <!-- Ad will be inserted here after page load -->
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/main.js" type="module"></script>
+    <script src="/assets/js/story-engine.js" type="module"></script>
+</body>
+</html>

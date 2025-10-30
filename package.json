@@ -1,0 +1,17 @@
+{
+  "name": "the-hidden-chamber",
+  "version": "1.0.0",
+  "description": "A mystical personality analysis website",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Deployed on Vercel!'"
+  },
+  "dependencies": {
+    "@upstash/redis": "^1.32.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/h-of-c/hidden-of-chamber/"
+  },
+  "license": "MIT"
+}

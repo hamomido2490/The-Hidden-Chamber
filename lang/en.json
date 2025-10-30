@@ -1,0 +1,547 @@
+{
+    "site_title": "The Hidden Chamber",
+    "site_subtitle": "Where ancient secrets meet modern psychology",
+    "visitors": "visitors",
+    "completed": "completed the journey",
+    "welcome_title": "🌙 Welcome to the Hidden Dimension",
+    "welcome_text": "Behind this door lies an unrevealed secret... <strong>your true self</strong>.<br>A 7-minute journey that will change how you see yourself forever.",
+    "coffee_reading": "Request Coffee Reading",
+    "coming_soon": "Coming Soon",
+    "birthdate_label": "📅 Enter your real birthdate (this is your secret alone)",
+    "privacy_note": "🔒 No personal data will be saved. This is a promise.",
+    "start_journey": "Open the Door",
+    "question": "Question",
+    "previous": "Previous",
+    "next": "Next",
+    "analyzing": "Analyzing your secrets...",
+    "loading_messages": [
+        "🔮 Opening the doors of the subconscious...",
+        "🌀 Analyzing hidden patterns...",
+        "✨ Revealing secrets...",
+        "🧬 Exploring the depths of your personality...",
+        "🎭 Result almost ready..."
+    ],
+    "back_home": "Back to Home",
+    "your_secret": "Your Revealed Secret",
+    "age_label": "Age:",
+    "years": "years",
+    "key_traits": "Key Traits:",
+    "soul_color_title": "Your Soul Color",
+    "personality_dimensions": "Your Five Personality Dimensions",
+    "your_story": "Your Unique Story",
+    "similar_people": "People Like You",
+    "similar_intro": "These historical and famous personalities share the same zodiac and psychological traits with you:",
+    "share_title": "Share Your Result",
+    "share_text": "Did you enjoy the journey? Share it with your friends:",
+    "share": "Share",
+    "retake": "Start a New Journey",
+    "notification_title": "Want to know more?",
+    "notification_text": "We'll send you mysterious notifications from time to time... if you're ready.",
+    "enable_notifications": "Yes, notify me",
+    "maybe_later": "Maybe later",
+    "privacy_badge": "Your privacy is 100% guaranteed",
+    "privacy_policy": "Privacy Policy",
+    "advertisement": "Advertisement",
+    "coffee_modal_title": "Coffee Reading - Coming Soon",
+    "coffee_modal_text": "This mysterious feature is currently under development...<br>Leave your info and we'll contact you when the portal opens.",
+    "name_placeholder": "Your first name",
+    "whatsapp_notify": "Notify me via WhatsApp",
+
+    "questions": [
+        {
+            "text": "I love exploring new and unconventional ideas",
+            "category": "🎨 Creativity",
+            "dimension": "openness",
+            "options": [
+                { "text": "Strongly disagree", "value": 1 },
+                { "text": "Disagree", "value": 2 },
+                { "text": "Neutral", "value": 3 },
+                { "text": "Agree", "value": 4 },
+                { "text": "Strongly agree", "value": 5 }
+            ]
+        },
+        {
+            "text": "I prefer routine over new experiences",
+            "category": "🎨 Creativity",
+            "dimension": "openness",
+            "reverse": true,
+            "options": [
+                { "text": "Strongly agree", "value": 1 },
+                { "text": "Agree", "value": 2 },
+                { "text": "Neutral", "value": 3 },
+                { "text": "Disagree", "value": 4 },
+                { "text": "Strongly disagree", "value": 5 }
+            ]
+        },
+        {
+            "text": "I dream of visiting strange places and different cultures",
+            "category": "🎨 Creativity",
+            "dimension": "openness",
+            "options": [
+                { "text": "Strongly disagree", "value": 1 },
+                { "text": "Disagree", "value": 2 },
+                { "text": "Neutral", "value": 3 },
+                { "text": "Agree", "value": 4 },
+                { "text": "Strongly agree", "value": 5 }
+            ]
+        },
+        {
+            "text": "Art and music don't affect me much",
+            "category": "🎨 Creativity",
+            "dimension": "openness",
+            "reverse": true,
+            "options": [
+                { "text": "Strongly agree", "value": 1 },
+                { "text": "Agree", "value": 2 },
+                { "text": "Neutral", "value": 3 },
+                { "text": "Disagree", "value": 4 },
+                { "text": "Strongly disagree", "value": 5 }
+            ]
+        },
+        {
+            "text": "I enjoy thinking about philosophical questions",
+            "category": "🎨 Creativity",
+            "dimension": "openness",
+            "options": [
+                { "text": "Strongly disagree", "value": 1 },
+                { "text": "Disagree", "value": 2 },
+                { "text": "Neutral", "value": 3 },
+                { "text": "Agree", "value": 4 },
+                { "text": "Strongly agree", "value": 5 }
+            ]
+        },
+
+        {
+            "text": "I plan my tasks carefully before starting them",
+            "category": "📋 Organization",
+            "dimension": "conscientiousness",
+            "options": [
+                { "text": "Very rarely", "value": 1 },
+                { "text": "Sometimes", "value": 2 },
+                { "text": "Often", "value": 3 },
+                { "text": "Almost always", "value": 4 },
+                { "text": "Always", "value": 5 }
+            ]
+        },
+        {
+            "text": "I usually leave my things in a mess",
+            "category": "📋 Organization",
+            "dimension": "conscientiousness",
+            "reverse": true,
+            "options": [
+                { "text": "Always", "value": 1 },
+                { "text": "Almost always", "value": 2 },
+                { "text": "Often", "value": 3 },
+                { "text": "Sometimes", "value": 4 },
+                { "text": "Very rarely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I complete tasks even if they are boring",
+            "category": "📋 Organization",
+            "dimension": "conscientiousness",
+            "options": [
+                { "text": "Very rarely", "value": 1 },
+                { "text": "Sometimes", "value": 2 },
+                { "text": "Often", "value": 3 },
+                { "text": "Almost always", "value": 4 },
+                { "text": "Always", "value": 5 }
+            ]
+        },
+        {
+            "text": "I am sometimes late for appointments",
+            "category": "📋 Organization",
+            "dimension": "conscientiousness",
+            "reverse": true,
+            "options": [
+                { "text": "Always", "value": 1 },
+                { "text": "Often", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Rarely", "value": 4 },
+                { "text": "Never", "value": 5 }
+            ]
+        },
+        {
+            "text": "I set clear goals for myself",
+            "category": "📋 Organization",
+            "dimension": "conscientiousness",
+            "options": [
+                { "text": "Very rarely", "value": 1 },
+                { "text": "Sometimes", "value": 2 },
+                { "text": "Often", "value": 3 },
+                { "text": "Almost always", "value": 4 },
+                { "text": "Always", "value": 5 }
+            ]
+        },
+
+        {
+            "text": "I feel energized when I'm in large gatherings",
+            "category": "🎭 Social",
+            "dimension": "extraversion",
+            "options": [
+                { "text": "Never", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Always", "value": 5 }
+            ]
+        },
+        {
+            "text": "I prefer spending time alone over going out with others",
+            "category": "🎭 Social",
+            "dimension": "extraversion",
+            "reverse": true,
+            "options": [
+                { "text": "Always", "value": 1 },
+                { "text": "Often", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Rarely", "value": 4 },
+                { "text": "Never", "value": 5 }
+            ]
+        },
+        {
+            "text": "I can easily talk to strangers",
+            "category": "🎭 Social",
+            "dimension": "extraversion",
+            "options": [
+                { "text": "Never", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Always", "value": 5 }
+            ]
+        },
+        {
+            "text": "I feel drained after social interactions",
+            "category": "🎭 Social",
+            "dimension": "extraversion",
+            "reverse": true,
+            "options": [
+                { "text": "Always", "value": 1 },
+                { "text": "Often", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Rarely", "value": 4 },
+                { "text": "Never", "value": 5 }
+            ]
+        },
+        {
+            "text": "I enjoy being the center of attention",
+            "category": "🎭 Social",
+            "dimension": "extraversion",
+            "options": [
+                { "text": "Never", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Always", "value": 5 }
+            ]
+        },
+
+        {
+            "text": "I find it hard to say 'no' to others",
+            "category": "💖 Empathy",
+            "dimension": "agreeableness",
+            "options": [
+                { "text": "Never", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Always", "value": 5 }
+            ]
+        },
+        {
+            "text": "I am suspicious of others' intentions",
+            "category": "💖 Empathy",
+            "dimension": "agreeableness",
+            "reverse": true,
+            "options": [
+                { "text": "Always", "value": 1 },
+                { "text": "Often", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Rarely", "value": 4 },
+                { "text": "Never", "value": 5 }
+            ]
+        },
+        {
+            "text": "I put others' needs before my own",
+            "category": "💖 Empathy",
+            "dimension": "agreeableness",
+            "options": [
+                { "text": "Never", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Always", "value": 5 }
+            ]
+        },
+        {
+            "text": "I compete strongly to achieve my goals",
+            "category": "💖 Empathy",
+            "dimension": "agreeableness",
+            "reverse": true,
+            "options": [
+                { "text": "Always", "value": 1 },
+                { "text": "Often", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Rarely", "value": 4 },
+                { "text": "Never", "value": 5 }
+            ]
+        },
+        {
+            "text": "I easily empathize with others' feelings",
+            "category": "💖 Empathy",
+            "dimension": "agreeableness",
+            "options": [
+                { "text": "Never", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Always", "value": 5 }
+            ]
+        },
+
+        {
+            "text": "I worry about small things",
+            "category": "🌊 Emotions",
+            "dimension": "neuroticism",
+            "options": [
+                { "text": "Never", "value": 5 },
+                { "text": "Rarely", "value": 4 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 2 },
+                { "text": "Always", "value": 1 }
+            ]
+        },
+        {
+            "text": "I stay calm even in stressful situations",
+            "category": "🌊 Emotions",
+            "dimension": "neuroticism",
+            "reverse": true,
+            "options": [
+                { "text": "Never", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Always", "value": 5 }
+            ]
+        },
+        {
+            "text": "I get frustrated easily",
+            "category": "🌊 Emotions",
+            "dimension": "neuroticism",
+            "options": [
+                { "text": "Never", "value": 5 },
+                { "text": "Rarely", "value": 4 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 2 },
+                { "text": "Always", "value": 1 }
+            ]
+        },
+        {
+            "text": "I recover quickly from disappointments",
+            "category": "🌊 Emotions",
+            "dimension": "neuroticism",
+            "reverse": true,
+            "options": [
+                { "text": "Never", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Always", "value": 5 }
+            ]
+        },
+        {
+            "text": "I often think about my past mistakes",
+            "category": "🌊 Emotions",
+            "dimension": "neuroticism",
+            "options": [
+                { "text": "Never", "value": 5 },
+                { "text": "Rarely", "value": 4 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 2 },
+                { "text": "Always", "value": 1 }
+            ]
+        },
+
+        {
+            "text": "When I'm angry, I act quickly and decisively",
+            "category": "🔴 Red - Power",
+            "dimension": "color_red",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I like to take charge in difficult situations",
+            "category": "🔴 Red - Power",
+            "dimension": "color_red",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I look for fun and joy in every situation",
+            "category": "🟡 Yellow - Joy",
+            "dimension": "color_yellow",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I laugh easily and enjoy joking around",
+            "category": "🟡 Yellow - Joy",
+            "dimension": "color_yellow",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I analyze things from all angles before making a decision",
+            "category": "🔵 Blue - Analysis",
+            "dimension": "color_blue",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I enjoy working on projects that require deep focus",
+            "category": "🔵 Blue - Analysis",
+            "dimension": "color_blue",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I always try to bring peace among others",
+            "category": "🟢 Green - Peace",
+            "dimension": "color_green",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I prefer quiet environments over noisy ones",
+            "category": "🟢 Green - Peace",
+            "dimension": "color_green",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I take responsibility even when it's heavy",
+            "category": "🔴 Red - Power",
+            "dimension": "color_red",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I love surprising others with creative gifts or ideas",
+            "category": "🟡 Yellow - Joy",
+            "dimension": "color_yellow",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I trust logic more than emotions",
+            "category": "🔵 Blue - Analysis",
+            "dimension": "color_blue",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I like helping others without expecting anything in return",
+            "category": "🟢 Green - Peace",
+            "dimension": "color_green",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I enjoy challenges that require courage",
+            "category": "🔴 Red - Power",
+            "dimension": "color_red",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I see the bright side even in difficult situations",
+            "category": "🟡 Yellow - Joy",
+            "dimension": "color_yellow",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        },
+        {
+            "text": "I prefer working alone on complex projects",
+            "category": "🔵 Blue - Analysis",
+            "dimension": "color_blue",
+            "options": [
+                { "text": "Does not apply to me", "value": 1 },
+                { "text": "Rarely", "value": 2 },
+                { "text": "Sometimes", "value": 3 },
+                { "text": "Often", "value": 4 },
+                { "text": "Applies to me completely", "value": 5 }
+            ]
+        }
+    ]
+}
