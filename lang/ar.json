@@ -46,6 +46,12 @@
     "coffee_modal_text": "هذه الميزة الغامضة قيد التطوير حالياً...<br>اترك بياناتك وسنتواصل معك عندما تُفتح البوابة.",
     "name_placeholder": "اسمك الأول",
     "whatsapp_notify": "أبلغني عبر واتساب",
+    "reviews_title": "آراء الزوار",
+"reviews_intro": "شارك تجربتك — اسمك كما تريد!",
+"alias_placeholder": "اسمك المستعار (اختياري)",
+"review_placeholder": "شاركنا تجربتك...",
+"your_rating": "تقييمك:",
+"submit_review": "أضف رأيك"
 
     "questions": [
         {
