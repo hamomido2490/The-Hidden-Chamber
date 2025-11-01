@@ -1608,3 +1608,122 @@ body {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.5);
 }
+/* ─────────────────────────────────────────────────────────── */
+/* REVIEWS SECTION */
+/* ─────────────────────────────────────────────────────────── */
+.reviews-section {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-xl);
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.mystical-textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--glass-border);
+    border-radius: 12px;
+    color: #fff;
+    font-family: var(--font-body);
+    resize: vertical;
+    min-height: 80px;
+}
+
+.rating-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.rating-input label {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.stars {
+    display: flex;
+    gap: 0.25rem;
+    cursor: pointer;
+}
+
+.stars span {
+    font-size: 1.5rem;
+    color: #6b7280;
+    transition: color 0.2s;
+}
+
+.reviews-scroll-container {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 8px;
+    margin-top: var(--space-md);
+}
+
+.reviews-scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.reviews-scroll-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.reviews-scroll-container::-webkit-scrollbar-thumb {
+    background: var(--neon-cyan);
+    border-radius: 10px;
+}
+
+.review-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: var(--space-md);
+    margin-bottom: var(--space-sm);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm);
+}
+
+.reviewer-alias {
+    font-weight: 600;
+    color: var(--neon-cyan);
+    font-size: 1rem;
+}
+
+.review-rating {
+    color: #fbbf24;
+    font-size: 1.1rem;
+}
+
+.review-comment {
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.review-time {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .reviews-scroll-container {
+        max-height: 250px;
+    }
+}
