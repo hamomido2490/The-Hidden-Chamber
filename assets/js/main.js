@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════
-// MAIN ENGINE - The Hidden Chamber
+// MAIN ENGINE - The Hidden Chamber (Full Version)
 // ═══════════════════════════════════════════════════════════
 
 import { StoryEngine } from './story-engine.js';
@@ -32,11 +32,14 @@ class HiddenChamber {
         await this.loadTranslations();
         this.bindEvents();
         this.updateUIForLanguage();
-        this.incrementVisitor();
+        this.incrementUniqueVisitor();
         
-        // Handle result page if URL contains data
+        // Handle result page if needed
         if (window.location.pathname.includes('result.html')) {
             this.handleResultPage();
+        } else {
+            // Load reviews on homepage
+            this.loadReviews();
         }
     }
 
@@ -68,7 +71,6 @@ class HiddenChamber {
             }
         });
 
-        // Handle placeholder translations
         document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
             const key = el.getAttribute('data-translate-placeholder');
             if (this.translations[key]) {
@@ -91,6 +93,27 @@ class HiddenChamber {
         if (langToggle) {
             langToggle.querySelector('.lang-text').textContent = 
                 this.currentLang === 'ar' ? 'English' : 'العربية';
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // Unique Visitor Counter (Privacy-First)
+    // ─────────────────────────────────────────────────────────
+    async incrementUniqueVisitor() {
+        const hasVisited = localStorage.getItem('hidden_chamber_visited');
+        if (hasVisited) return;
+
+        const visitorId = 'visitor_' + Math.random().toString(36).substr(2, 9);
+        
+        try {
+            await fetch('/api/increment-visitor', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ visitorId })
+            });
+            localStorage.setItem('hidden_chamber_visited', 'true');
+        } catch (error) {
+            console.warn('Failed to count unique visitor');
         }
     }
 
@@ -147,8 +170,6 @@ class HiddenChamber {
         if (coffeeForm) {
             coffeeForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                // In a real implementation, you'd send this to a webhook
-                // For now, just show success message
                 alert(this.translations.coffee_modal_success || 'تم استلام طلبك! سنتواصل معك قريباً.');
                 if (modal) modal.style.display = 'none';
                 coffeeForm.reset();
@@ -181,6 +202,12 @@ class HiddenChamber {
 
         // Share buttons
         this.bindShareButtons();
+
+        // Reviews form (on homepage)
+        const reviewForm = document.getElementById('reviewForm');
+        if (reviewForm) {
+            this.bindReviewForm();
+        }
     }
 
     bindShareButtons() {
@@ -214,7 +241,6 @@ class HiddenChamber {
                                 url: url
                             });
                         } else {
-                            // Fallback: copy to clipboard
                             navigator.clipboard.writeText(url).then(() => {
                                 alert('تم نسخ الرابط إلى الحافظة!');
                             });
@@ -222,6 +248,49 @@ class HiddenChamber {
                         break;
                 }
             });
+        });
+    }
+
+    bindReviewForm() {
+        const form = document.getElementById('reviewForm');
+        const stars = form.querySelectorAll('#ratingStars span');
+        let selectedRating = 5;
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                selectedRating = parseInt(star.getAttribute('data-value'));
+                document.getElementById('ratingValue').value = selectedRating;
+                stars.forEach((s, i) => {
+                    s.style.color = i < selectedRating ? '#fbbf24' : '#6b7280';
+                });
+            });
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const alias = form.querySelector('input[type="text"]').value;
+            const rating = document.getElementById('ratingValue').value;
+            const comment = form.querySelector('textarea').value;
+
+            try {
+                const res = await fetch('/api/submit-review', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ alias, rating, comment })
+                });
+
+                if (res.ok) {
+                    form.reset();
+                    document.getElementById('ratingValue').value = 5;
+                    stars.forEach(s => s.style.color = '#6b7280');
+                    this.loadReviews(); // تحديث القائمة
+                } else {
+                    const data = await res.json();
+                    alert(data.error || 'حدث خطأ');
+                }
+            } catch (error) {
+                alert('فشل الاتصال بالخادم');
+            }
         });
     }
 
@@ -241,10 +310,9 @@ class HiddenChamber {
     }
 
     calculateZodiac(birthDate) {
-        const month = birthDate.getMonth() + 1; // 1-12
-        const day = birthDate.getDate(); // 1-31
+        const month = birthDate.getMonth() + 1;
+        const day = birthDate.getDate();
         
-        // Handle edge cases for zodiac boundaries
         if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return 'الحمل';
         if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return 'الثور';
         if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) return 'الجوزاء';
@@ -258,7 +326,7 @@ class HiddenChamber {
         if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) return 'الدلو';
         if ((month === 2 && day >= 19) || (month === 3 && day <= 20)) return 'الحوت';
         
-        return 'الحوت'; // fallback
+        return 'الحوت';
     }
 
     // ─────────────────────────────────────────────────────────
@@ -267,14 +335,11 @@ class HiddenChamber {
     async startJourney() {
         if (!this.birthdate) return;
         
-        // Load questions
         this.questions = this.translations.questions || [];
         
-        // Show quiz section
         document.getElementById('welcomeSection').style.display = 'none';
         document.getElementById('quizSection').style.display = 'block';
         
-        // Initialize first question
         this.currentQuestionIndex = 0;
         this.showQuestion(this.currentQuestionIndex);
         this.updateProgressBar();
@@ -288,11 +353,9 @@ class HiddenChamber {
         document.getElementById('questionCategory').textContent = question.category;
         document.getElementById('questionNumber').textContent = `${index + 1}/40`;
         
-        // Clear previous answers
         const answersGrid = document.getElementById('answersGrid');
         answersGrid.innerHTML = '';
         
-        // Create answer options
         question.options.forEach((option, optionIndex) => {
             const answerBtn = document.createElement('button');
             answerBtn.className = 'answer-option';
@@ -302,7 +365,6 @@ class HiddenChamber {
                 this.updateNavigation();
             });
             
-            // Highlight selected answer
             if (this.answers[index] && this.answers[index].value === option.value) {
                 answerBtn.classList.add('selected');
             }
@@ -312,26 +374,20 @@ class HiddenChamber {
     }
 
     selectAnswer(questionIndex, value, dimension, isReverse = false) {
-        // Handle reverse scoring for Big Five
         let finalValue = value;
         if (isReverse && dimension !== 'color') {
-            finalValue = 6 - value; // Reverse 1-5 to 5-1
+            finalValue = 6 - value;
         }
         
         this.answers[questionIndex] = { value: value, finalValue, dimension };
         
-        // Update Big Five or Color scores
         if (dimension.startsWith('color_')) {
-            // Handle color questions
-            const colorType = dimension.replace('color_', '');
             if (!this.answers.color) this.answers.color = {};
-            this.answers.color[colorType] = (this.answers.color[colorType] || 0) + finalValue;
+            this.answers.color[dimension.replace('color_', '')] = (this.answers.color[dimension.replace('color_', '')] || 0) + finalValue;
         } else if (dimension !== 'color') {
-            // Handle Big Five dimensions
             this.bigFive[dimension] = (this.bigFive[dimension] || 0) + finalValue;
         }
         
-        // Re-render answers to show selection
         this.showQuestion(questionIndex);
     }
 
@@ -373,15 +429,10 @@ class HiddenChamber {
         }
     }
 
-    // ─────────────────────────────────────────────────────────
-    // Journey Completion
-    // ─────────────────────────────────────────────────────────
     async finishJourney() {
-        // Show loading screen
         document.getElementById('quizSection').style.display = 'none';
         document.getElementById('loadingSection').style.display = 'block';
         
-        // Simulate processing time with real messages
         const messages = this.translations.loading_messages || [
             "Processing your secrets...",
             "Analyzing patterns...",
@@ -394,7 +445,6 @@ class HiddenChamber {
             messageIndex++;
         }, 2000);
         
-        // Simulate progress bar
         let progress = 0;
         const progressInterval = setInterval(() => {
             progress += Math.random() * 10;
@@ -405,26 +455,21 @@ class HiddenChamber {
             document.getElementById('loadingBar').style.width = `${progress}%`;
         }, 100);
         
-        // Calculate final results
         await this.calculateResults();
         
-        // Clear intervals
         clearInterval(messageInterval);
         clearInterval(progressInterval);
         
-        // Redirect to result page with data
         this.redirectToResults();
     }
 
     calculateResults() {
         return new Promise((resolve) => {
             setTimeout(() => {
-                // Calculate Big Five averages (5 questions per dimension)
                 Object.keys(this.bigFive).forEach(dim => {
-                    this.bigFive[dim] = Math.round((this.bigFive[dim] / 5) * 20); // Convert to 0-100 scale
+                    this.bigFive[dim] = Math.round((this.bigFive[dim] / 5) * 20);
                 });
                 
-                // Determine soul color (highest score among color dimensions)
                 if (this.answers.color) {
                     let maxColor = 'blue';
                     let maxValue = 0;
@@ -437,14 +482,13 @@ class HiddenChamber {
                     this.soulColor = maxColor;
                 }
                 
-                // Calculate zodiac
                 this.zodiacData = {
                     name: this.calculateZodiac(this.birthdate),
                     dates: this.getZodiacDates(this.calculateZodiac(this.birthdate))
                 };
                 
                 resolve();
-            }, 3000); // Simulate processing time
+            }, 3000);
         });
     }
 
@@ -467,8 +511,6 @@ class HiddenChamber {
     }
 
     redirectToResults() {
-        // In a real implementation, you'd use sessionStorage or URL params
-        // For simplicity, we'll use sessionStorage
         const results = {
             age: this.calculateAge(this.birthdate),
             zodiac: this.zodiacData,
@@ -500,13 +542,11 @@ class HiddenChamber {
             return;
         }
         
-        // Display user info
         document.getElementById('userAge').textContent = results.age;
         document.getElementById('userZodiac').textContent = results.zodiac.name;
         document.getElementById('zodiacDates').textContent = results.zodiac.dates;
         document.getElementById('zodiacIcon').textContent = this.getZodiacSymbol(results.zodiac.name);
         
-        // Display zodiac card
         const zodiacDesc = StoryEngine.getZodiacDescription(results.zodiac.name, this.currentLang);
         const zodiacTraits = StoryEngine.getZodiacTraits(results.zodiac.name, this.currentLang);
         
@@ -515,7 +555,6 @@ class HiddenChamber {
         document.getElementById('zodiacName').textContent = results.zodiac.name;
         document.getElementById('zodiacElement').textContent = this.getZodiacElement(results.zodiac.name);
         
-        // Display traits
         const traitsGrid = document.getElementById('traitsGrid');
         traitsGrid.innerHTML = '';
         zodiacTraits.forEach(trait => {
@@ -525,13 +564,11 @@ class HiddenChamber {
             traitsGrid.appendChild(traitEl);
         });
         
-        // Display soul color
         const colorData = StoryEngine.getColorData(results.soulColor, this.currentLang);
         document.getElementById('colorName').textContent = colorData.name;
         document.getElementById('colorMeaning').textContent = colorData.meaning;
         document.querySelector('.color-orb').style.background = colorData.gradient || 'var(--neon-blue)';
         
-        // Display Big Five
         const dimensionsGrid = document.getElementById('dimensionsGrid');
         dimensionsGrid.innerHTML = '';
         
@@ -554,11 +591,9 @@ class HiddenChamber {
             dimensionsGrid.appendChild(card);
         });
         
-        // Generate and display story
         const story = StoryEngine.generateStory(results, this.currentLang);
         document.getElementById('storyContent').innerHTML = story;
         
-        // Display similar personalities
         const personalities = StoryEngine.getSimilarPersonalities(results.zodiac.name, this.currentLang);
         const personalitiesGrid = document.getElementById('personalitiesGrid');
         personalitiesGrid.innerHTML = '';
@@ -575,13 +610,11 @@ class HiddenChamber {
             personalitiesGrid.appendChild(card);
         });
         
-        // Show notification prompt after delay
         setTimeout(() => {
             const prompt = document.getElementById('notificationPrompt');
             if (prompt) prompt.style.display = 'block';
         }, 5000);
         
-        // Increment completed counter
         this.incrementCompleted();
     }
 
@@ -624,14 +657,6 @@ class HiddenChamber {
     // ─────────────────────────────────────────────────────────
     // API Integration
     // ─────────────────────────────────────────────────────────
-    async incrementVisitor() {
-        try {
-            await fetch('/api/increment-visitor', { method: 'POST' });
-        } catch (error) {
-            console.warn('Failed to increment visitor count:', error);
-        }
-    }
-
     async incrementCompleted() {
         try {
             await fetch('/api/increment-completed', { method: 'POST' });
@@ -641,91 +666,9 @@ class HiddenChamber {
     }
 
     // ─────────────────────────────────────────────────────────
-    // Notifications
+    // Reviews System (Homepage)
     // ─────────────────────────────────────────────────────────
-    enableNotifications() {
-        // Load OneSignal dynamically only when needed
-        if (window.OneSignal) {
-            this.initOneSignal();
-        } else {
-            const script = document.createElement('script');
-            script.src = 'https://cdn.onesignal.com/sdks/OneSignalSDK.js';
-            script.defer = true;
-            script.onload = () => this.initOneSignal();
-            document.head.appendChild(script);
-        }
-    }
-
-    initOneSignal() {
-        window.OneSignal = window.OneSignal || [];
-        window.OneSignal.push(() => {
-            OneSignal.init({
-                appId: "2d323442-8f3b-469b-b5ea-c4d4a7f47b2c",
-            });
-            OneSignal.showSlidedownPrompt();
-        });
-    }
-}
-
-// Initialize the app when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    new HiddenChamber();
-});
-// في نهاية ملف main.js، أضف:
-
-class ReviewsManager {
-    static init() {
-        this.bindReviewForm();
-        this.loadReviews();
-    }
-
-    static bindReviewForm() {
-        const form = document.getElementById('reviewForm');
-        if (!form) return;
-
-        // تقييم النجوم
-        const stars = form.querySelectorAll('#ratingStars span');
-        let selectedRating = 5;
-        stars.forEach(star => {
-            star.addEventListener('click', () => {
-                selectedRating = parseInt(star.getAttribute('data-value'));
-                document.getElementById('ratingValue').value = selectedRating;
-                stars.forEach((s, i) => {
-                    s.style.color = i < selectedRating ? '#fbbf24' : '#6b7280';
-                });
-            });
-        });
-
-        // إرسال النموذج
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const alias = form.querySelector('input[type="text"]').value;
-            const rating = document.getElementById('ratingValue').value;
-            const comment = form.querySelector('textarea').value;
-
-            try {
-                const res = await fetch('/api/submit-review', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ alias, rating, comment })
-                });
-
-                if (res.ok) {
-                    form.reset();
-                    document.getElementById('ratingValue').value = 5;
-                    stars.forEach(s => s.style.color = '#fbbf24'); // إعادة تعيين النجوم
-                    this.loadReviews(); // تحديث القائمة
-                } else {
-                    const data = await res.json();
-                    alert(data.error || 'حدث خطأ');
-                }
-            } catch (error) {
-                alert('فشل الاتصال بالخادم');
-            }
-        });
-    }
-
-    static async loadReviews() {
+    async loadReviews() {
         try {
             const res = await fetch('/api/get-reviews');
             const reviews = await res.json();
@@ -735,7 +678,7 @@ class ReviewsManager {
         }
     }
 
-    static renderReviews(reviews) {
+    renderReviews(reviews) {
         const container = document.getElementById('reviewsList');
         if (!container) return;
 
@@ -751,11 +694,9 @@ class ReviewsManager {
                 <time class="review-time">${this.formatTime(r.timestamp)}</time>
             </div>
         `).join('');
-
-        // أضف CSS مخصصًا للتعليقات في style.css
     }
 
-    static escapeHtml(text) {
+    escapeHtml(text) {
         return text.replace(/[&<>"']/g, m => ({
             '&': '&amp;',
             '<': '<',
@@ -765,7 +706,7 @@ class ReviewsManager {
         }[m]));
     }
 
-    static formatTime(isoString) {
+    formatTime(isoString) {
         const date = new Date(isoString);
         const now = new Date();
         const diffHours = (now - date) / (1000 * 60 * 60);
@@ -773,10 +714,33 @@ class ReviewsManager {
         if (diffHours < 24) return `منذ ${Math.floor(diffHours)} ساعات`;
         return date.toLocaleDateString('ar-EG');
     }
+
+    // ─────────────────────────────────────────────────────────
+    // Notifications
+    // ─────────────────────────────────────────────────────────
+    enableNotifications() {
+        if (window.OneSignal) {
+            this.initOneSignal();
+        } else {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.onesignal.com/sdks/OneSignalSDK.js';
+            script.defer = true;
+            script.onload = () => this.initOneSignal();
+            document.head.appendChild(script);
+        }
+    }
+
+    initOneSignal() {
+        window.OneSignal = window.OneSignal || [];
+        window.OneSignal.push(() => {
+            OneSignal.init({
+                appId: 2d323442-8f3b-469b-b5ea-c4d4a7f47b2c, // ← غيّر هذا إلى معرفك
+            });
+            OneSignal.showSlidedownPrompt();
+        });
+    }
 }
 
-// في نهاية ملف main.js، بعد تحميل النتائج:
-if (window.location.pathname.includes('result.html')) {
-    // ... باقي الكود
-    ReviewsManager.init(); // ← أضف هذا السطر
-}
+document.addEventListener('DOMContentLoaded', () => {
+    new HiddenChamber();
+});
