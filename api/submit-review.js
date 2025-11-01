@@ -13,8 +13,6 @@ export default async function handler(req, res) {
 
   try {
     const { alias, rating, comment } = req.body;
-    
-    // التحقق من الصحة
     if (!comment || comment.length < 5 || comment.length > 200) {
       return res.status(400).json({ error: 'التعليق يجب أن يكون بين 5-200 حرف' });
     }
@@ -30,13 +28,10 @@ export default async function handler(req, res) {
       timestamp: new Date().toISOString()
     };
 
-    // حفظ في قائمة Redis
     await redis.lpush('hidden_chamber:reviews', JSON.stringify(review));
-    await redis.ltrim('hidden_chamber:reviews', 0, 99); // احتفظ بآخر 100 تقييم
-
-    return res.status(200).json({ success: true });
+    await redis.ltrim('hidden_chamber:reviews', 0, 99);
+    res.status(200).json({ success: true });
   } catch (error) {
-    console.error('Review error:', error);
-    return res.status(500).json({ error: 'فشل الحفظ' });
+    res.status(500).json({ error: 'فشل الحفظ' });
   }
 }
