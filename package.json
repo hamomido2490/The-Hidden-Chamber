@@ -1,7 +1,7 @@
 {
   "name": "the-hidden-chamber",
   "version": "1.0.0",
-  "description": "A mystical personality analysis website",
+  "description": "A mystical personality analysis website combining Big Five, color psychology, and zodiac signs",
   "main": "index.html",
   "scripts": {
     "start": "echo 'Deployed on Vercel!'"
@@ -11,7 +11,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/h-of-c/hidden-of-chamber/"
+    "url": "https://github.com/hamomido2490/The-Hidden-Chamber"
   },
+  "keywords": [
+    "personality",
+    "psychology",
+    "zodiac",
+    "big-five",
+    "mystical",
+    "arabic"
+  ],
+  "author": "Eng. Mohammed Tarek",
   "license": "MIT"
 }
