@@ -1,41 +1,23 @@
-// ═══════════════════════════════════════════════════════════
-// VISITOR COUNTER - Upstash Redis Integration (Vercel Compatible)
-// ═══════════════════════════════════════════════════════════
-
 const { Redis } = require('@upstash/redis');
-
-// Initialize Redis
 const redis = new Redis({
   url: process.env.UPSTASH_REDIS_REST_URL,
   token: process.env.UPSTASH_REDIS_REST_TOKEN,
 });
 
 export default async function handler(req, res) {
-  // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Handle preflight requests
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
+  if (req.method === 'OPTIONS') return res.status(200).end();
 
   try {
-    // Increment visitor count
-    const count = await redis.incr('hidden_chamber:visitors');
-    
-    return res.status(200).json({
-      success: true,
-      count: count,
-      message: 'Visitor counted'
-    });
+    const visitorId = req.body?.visitorId || 'unknown';
+    const added = await redis.sadd('hidden_chamber:unique_visitors', visitorId);
+    if (added) await redis.incr('hidden_chamber:visitors');
+    const count = await redis.scard('hidden_chamber:unique_visitors');
+    res.status(200).json({ success: true, count });
   } catch (error) {
-    console.error('Redis error:', error);
-    return res.status(500).json({
-      success: false,
-      error: 'Failed to increment counter',
-      count: 0
-    });
+    res.status(500).json({ success: false, count: 0 });
   }
 }
