@@ -234,7 +234,54 @@
             </div>
         </div>
     </div>
+<!-- Reviews Section (في نهاية <div class="container">) -->
+<section class="reviews-section glass-card">
+    <div class="card-glow"></div>
+    <h3 class="section-title">
+        <span class="title-icon">💬</span>
+        <span data-translate="reviews_title">آراء الزوار</span>
+    </h3>
+    <p class="reviews-intro" data-translate="reviews_intro">
+        شارك تجربتك — اسمك كما تريد!
+    </p>
+    
+    <!-- نموذج الإضافة -->
+    <form class="review-form" id="reviewForm">
+        <input type="text" 
+               placeholder="اسمك المستعار (اختياري)" 
+               data-translate-placeholder="alias_placeholder"
+               class="mystical-input"
+               maxlength="30">
+        <div class="rating-input">
+            <label data-translate="your_rating">تقييمك:</label>
+            <div class="stars" id="ratingStars">
+                <span data-value="1">★</span>
+                <span data-value="2">★</span>
+                <span data-value="3">★</span>
+                <span data-value="4">★</span>
+                <span data-value="5">★</span>
+            </div>
+            <input type="hidden" id="ratingValue" name="rating" value="5">
+        </div>
+        <textarea 
+            placeholder="شاركنا تجربتك..." 
+            data-translate-placeholder="review_placeholder"
+            class="mystical-textarea"
+            rows="3"
+            maxlength="200"
+            required></textarea>
+        <button type="submit" class="cta-button cta-small">
+            <span data-translate="submit_review">أضف رأيك</span>
+        </button>
+    </form>
 
+    <!-- عرض التقييمات مع تمرير -->
+    <div class="reviews-scroll-container">
+        <div class="reviews-list" id="reviewsList">
+            <!-- سيتم توليدها ديناميكيًا -->
+        </div>
+    </div>
+</section>
     <!-- Scripts -->
     <script src="/assets/js/main.js" type="module"></script>
     <script src="/assets/js/story-engine.js" type="module"></script>
