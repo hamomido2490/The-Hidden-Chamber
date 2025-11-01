@@ -46,6 +46,12 @@
     "coffee_modal_text": "This mysterious feature is currently under development...<br>Leave your info and we'll contact you when the portal opens.",
     "name_placeholder": "Your first name",
     "whatsapp_notify": "Notify me via WhatsApp",
+    "reviews_title": "Visitor Reviews",
+"reviews_intro": "Share your experience — your name as you wish!",
+"alias_placeholder": "Your alias (optional)",
+"review_placeholder": "Share your thoughts...",
+"your_rating": "Your rating:",
+"submit_review": "Submit Review"
 
     "questions": [
         {
