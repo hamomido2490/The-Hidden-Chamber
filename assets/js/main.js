@@ -734,7 +734,7 @@ class HiddenChamber {
         window.OneSignal = window.OneSignal || [];
         window.OneSignal.push(() => {
             OneSignal.init({
-                appId: 2d323442-8f3b-469b-b5ea-c4d4a7f47b2c, // ← غيّر هذا إلى معرفك
+                appId: "2d323442-8f3b-469b-b5ea-c4d4a7f47b2c", // ← غيّر هذا إلى معرفك
             });
             OneSignal.showSlidedownPrompt();
         });
