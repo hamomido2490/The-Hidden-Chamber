@@ -1,6 +1,6 @@
 {
   "name": "the-hidden-chamber",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A mystical personality analysis website combining Big Five, color psychology, and zodiac signs",
   "main": "index.html",
   "scripts": {
