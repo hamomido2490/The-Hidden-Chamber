@@ -718,15 +718,29 @@ class HiddenChamber {
     // ─────────────────────────────────────────────────────────
     // Notifications
     // ─────────────────────────────────────────────────────────
- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "2d323442-8f3b-469b-b5ea-c4d4a7f47b2c",
+ // Notifications
+// ─────────────────────────────────────────────────────────
+enableNotifications() {
+    if (window.OneSignal) {
+        this.initOneSignal();
+    } else {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js'; // بدون مسافات!
+        script.defer = true;
+        script.onload = () => this.initOneSignal();
+        document.head.appendChild(script);
+    }
+}
+
+initOneSignal() {
+    window.OneSignal = window.OneSignal || [];
+    window.OneSignal.push(() => {
+        OneSignal.init({
+            appId: "2d323442-8f3b-469b-b5ea-c4d4a7f47b2c",
+        });
+        OneSignal.showSlidedownPrompt();
     });
-  });
-</script>
+}
 document.addEventListener('DOMContentLoaded', () => {
     new HiddenChamber();
 });
