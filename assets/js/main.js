@@ -716,14 +716,14 @@ class HiddenChamber {
     }
 
     // ─────────────────────────────────────────────────────────
-    // Notifications
-    // ─────────────────────────────────────────────────────────
+   // Notifications
+// ─────────────────────────────────────────────────────────
 enableNotifications() {
     if (window.OneSignal) {
         this.initOneSignal();
     } else {
         const script = document.createElement('script');
-        script.src = 'https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js'; // بدون مسافات!
+        script.src = 'https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js'; // ✅ بدون مسافات
         script.defer = true;
         script.onload = () => this.initOneSignal();
         document.head.appendChild(script);
@@ -739,7 +739,7 @@ initOneSignal() {
         OneSignal.showSlidedownPrompt();
     });
 }
-    
+
 document.addEventListener('DOMContentLoaded', () => {
     new HiddenChamber();
 });
