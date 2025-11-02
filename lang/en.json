@@ -47,23 +47,37 @@
     "name_placeholder": "Your first name",
     "whatsapp_notify": "Notify me via WhatsApp",
     "reviews_title": "Visitor Reviews",
-"reviews_intro": "Share your experience — your name as you wish!",
-"alias_placeholder": "Your alias (optional)",
-"review_placeholder": "Share your thoughts...",
-"your_rating": "Your rating:",
-"submit_review": "Submit Review"
-
+    "reviews_intro": "Share your experience — your name as you wish!",
+    "alias_placeholder": "Your alias (optional)",
+    "review_placeholder": "Share your thoughts...",
+    "your_rating": "Your rating:",
+    "submit_review": "Submit Review",
     "questions": [
         {
             "text": "I love exploring new and unconventional ideas",
             "category": "🎨 Creativity",
             "dimension": "openness",
             "options": [
-                { "text": "Strongly disagree", "value": 1 },
-                { "text": "Disagree", "value": 2 },
-                { "text": "Neutral", "value": 3 },
-                { "text": "Agree", "value": 4 },
-                { "text": "Strongly agree", "value": 5 }
+                {
+                    "text": "Strongly disagree",
+                    "value": 1
+                },
+                {
+                    "text": "Disagree",
+                    "value": 2
+                },
+                {
+                    "text": "Neutral",
+                    "value": 3
+                },
+                {
+                    "text": "Agree",
+                    "value": 4
+                },
+                {
+                    "text": "Strongly agree",
+                    "value": 5
+                }
             ]
         },
         {
@@ -72,11 +86,26 @@
             "dimension": "openness",
             "reverse": true,
             "options": [
-                { "text": "Strongly agree", "value": 1 },
-                { "text": "Agree", "value": 2 },
-                { "text": "Neutral", "value": 3 },
-                { "text": "Disagree", "value": 4 },
-                { "text": "Strongly disagree", "value": 5 }
+                {
+                    "text": "Strongly agree",
+                    "value": 1
+                },
+                {
+                    "text": "Agree",
+                    "value": 2
+                },
+                {
+                    "text": "Neutral",
+                    "value": 3
+                },
+                {
+                    "text": "Disagree",
+                    "value": 4
+                },
+                {
+                    "text": "Strongly disagree",
+                    "value": 5
+                }
             ]
         },
         {
@@ -84,11 +113,26 @@
             "category": "🎨 Creativity",
             "dimension": "openness",
             "options": [
-                { "text": "Strongly disagree", "value": 1 },
-                { "text": "Disagree", "value": 2 },
-                { "text": "Neutral", "value": 3 },
-                { "text": "Agree", "value": 4 },
-                { "text": "Strongly agree", "value": 5 }
+                {
+                    "text": "Strongly disagree",
+                    "value": 1
+                },
+                {
+                    "text": "Disagree",
+                    "value": 2
+                },
+                {
+                    "text": "Neutral",
+                    "value": 3
+                },
+                {
+                    "text": "Agree",
+                    "value": 4
+                },
+                {
+                    "text": "Strongly agree",
+                    "value": 5
+                }
             ]
         },
         {
@@ -97,11 +141,26 @@
             "dimension": "openness",
             "reverse": true,
             "options": [
-                { "text": "Strongly agree", "value": 1 },
-                { "text": "Agree", "value": 2 },
-                { "text": "Neutral", "value": 3 },
-                { "text": "Disagree", "value": 4 },
-                { "text": "Strongly disagree", "value": 5 }
+                {
+                    "text": "Strongly agree",
+                    "value": 1
+                },
+                {
+                    "text": "Agree",
+                    "value": 2
+                },
+                {
+                    "text": "Neutral",
+                    "value": 3
+                },
+                {
+                    "text": "Disagree",
+                    "value": 4
+                },
+                {
+                    "text": "Strongly disagree",
+                    "value": 5
+                }
             ]
         },
         {
@@ -109,24 +168,53 @@
             "category": "🎨 Creativity",
             "dimension": "openness",
             "options": [
-                { "text": "Strongly disagree", "value": 1 },
-                { "text": "Disagree", "value": 2 },
-                { "text": "Neutral", "value": 3 },
-                { "text": "Agree", "value": 4 },
-                { "text": "Strongly agree", "value": 5 }
+                {
+                    "text": "Strongly disagree",
+                    "value": 1
+                },
+                {
+                    "text": "Disagree",
+                    "value": 2
+                },
+                {
+                    "text": "Neutral",
+                    "value": 3
+                },
+                {
+                    "text": "Agree",
+                    "value": 4
+                },
+                {
+                    "text": "Strongly agree",
+                    "value": 5
+                }
             ]
         },
-
         {
             "text": "I plan my tasks carefully before starting them",
             "category": "📋 Organization",
             "dimension": "conscientiousness",
             "options": [
-                { "text": "Very rarely", "value": 1 },
-                { "text": "Sometimes", "value": 2 },
-                { "text": "Often", "value": 3 },
-                { "text": "Almost always", "value": 4 },
-                { "text": "Always", "value": 5 }
+                {
+                    "text": "Very rarely",
+                    "value": 1
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 2
+                },
+                {
+                    "text": "Often",
+                    "value": 3
+                },
+                {
+                    "text": "Almost always",
+                    "value": 4
+                },
+                {
+                    "text": "Always",
+                    "value": 5
+                }
             ]
         },
         {
@@ -135,11 +223,26 @@
             "dimension": "conscientiousness",
             "reverse": true,
             "options": [
-                { "text": "Always", "value": 1 },
-                { "text": "Almost always", "value": 2 },
-                { "text": "Often", "value": 3 },
-                { "text": "Sometimes", "value": 4 },
-                { "text": "Very rarely", "value": 5 }
+                {
+                    "text": "Always",
+                    "value": 1
+                },
+                {
+                    "text": "Almost always",
+                    "value": 2
+                },
+                {
+                    "text": "Often",
+                    "value": 3
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 4
+                },
+                {
+                    "text": "Very rarely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -147,11 +250,26 @@
             "category": "📋 Organization",
             "dimension": "conscientiousness",
             "options": [
-                { "text": "Very rarely", "value": 1 },
-                { "text": "Sometimes", "value": 2 },
-                { "text": "Often", "value": 3 },
-                { "text": "Almost always", "value": 4 },
-                { "text": "Always", "value": 5 }
+                {
+                    "text": "Very rarely",
+                    "value": 1
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 2
+                },
+                {
+                    "text": "Often",
+                    "value": 3
+                },
+                {
+                    "text": "Almost always",
+                    "value": 4
+                },
+                {
+                    "text": "Always",
+                    "value": 5
+                }
             ]
         },
         {
@@ -160,11 +278,26 @@
             "dimension": "conscientiousness",
             "reverse": true,
             "options": [
-                { "text": "Always", "value": 1 },
-                { "text": "Often", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Rarely", "value": 4 },
-                { "text": "Never", "value": 5 }
+                {
+                    "text": "Always",
+                    "value": 1
+                },
+                {
+                    "text": "Often",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Rarely",
+                    "value": 4
+                },
+                {
+                    "text": "Never",
+                    "value": 5
+                }
             ]
         },
         {
@@ -172,24 +305,53 @@
             "category": "📋 Organization",
             "dimension": "conscientiousness",
             "options": [
-                { "text": "Very rarely", "value": 1 },
-                { "text": "Sometimes", "value": 2 },
-                { "text": "Often", "value": 3 },
-                { "text": "Almost always", "value": 4 },
-                { "text": "Always", "value": 5 }
+                {
+                    "text": "Very rarely",
+                    "value": 1
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 2
+                },
+                {
+                    "text": "Often",
+                    "value": 3
+                },
+                {
+                    "text": "Almost always",
+                    "value": 4
+                },
+                {
+                    "text": "Always",
+                    "value": 5
+                }
             ]
         },
-
         {
             "text": "I feel energized when I'm in large gatherings",
             "category": "🎭 Social",
             "dimension": "extraversion",
             "options": [
-                { "text": "Never", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Always", "value": 5 }
+                {
+                    "text": "Never",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Always",
+                    "value": 5
+                }
             ]
         },
         {
@@ -198,11 +360,26 @@
             "dimension": "extraversion",
             "reverse": true,
             "options": [
-                { "text": "Always", "value": 1 },
-                { "text": "Often", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Rarely", "value": 4 },
-                { "text": "Never", "value": 5 }
+                {
+                    "text": "Always",
+                    "value": 1
+                },
+                {
+                    "text": "Often",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Rarely",
+                    "value": 4
+                },
+                {
+                    "text": "Never",
+                    "value": 5
+                }
             ]
         },
         {
@@ -210,11 +387,26 @@
             "category": "🎭 Social",
             "dimension": "extraversion",
             "options": [
-                { "text": "Never", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Always", "value": 5 }
+                {
+                    "text": "Never",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Always",
+                    "value": 5
+                }
             ]
         },
         {
@@ -223,11 +415,26 @@
             "dimension": "extraversion",
             "reverse": true,
             "options": [
-                { "text": "Always", "value": 1 },
-                { "text": "Often", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Rarely", "value": 4 },
-                { "text": "Never", "value": 5 }
+                {
+                    "text": "Always",
+                    "value": 1
+                },
+                {
+                    "text": "Often",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Rarely",
+                    "value": 4
+                },
+                {
+                    "text": "Never",
+                    "value": 5
+                }
             ]
         },
         {
@@ -235,24 +442,53 @@
             "category": "🎭 Social",
             "dimension": "extraversion",
             "options": [
-                { "text": "Never", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Always", "value": 5 }
+                {
+                    "text": "Never",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Always",
+                    "value": 5
+                }
             ]
         },
-
         {
             "text": "I find it hard to say 'no' to others",
             "category": "💖 Empathy",
             "dimension": "agreeableness",
             "options": [
-                { "text": "Never", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Always", "value": 5 }
+                {
+                    "text": "Never",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Always",
+                    "value": 5
+                }
             ]
         },
         {
@@ -261,11 +497,26 @@
             "dimension": "agreeableness",
             "reverse": true,
             "options": [
-                { "text": "Always", "value": 1 },
-                { "text": "Often", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Rarely", "value": 4 },
-                { "text": "Never", "value": 5 }
+                {
+                    "text": "Always",
+                    "value": 1
+                },
+                {
+                    "text": "Often",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Rarely",
+                    "value": 4
+                },
+                {
+                    "text": "Never",
+                    "value": 5
+                }
             ]
         },
         {
@@ -273,11 +524,26 @@
             "category": "💖 Empathy",
             "dimension": "agreeableness",
             "options": [
-                { "text": "Never", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Always", "value": 5 }
+                {
+                    "text": "Never",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Always",
+                    "value": 5
+                }
             ]
         },
         {
@@ -286,11 +552,26 @@
             "dimension": "agreeableness",
             "reverse": true,
             "options": [
-                { "text": "Always", "value": 1 },
-                { "text": "Often", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Rarely", "value": 4 },
-                { "text": "Never", "value": 5 }
+                {
+                    "text": "Always",
+                    "value": 1
+                },
+                {
+                    "text": "Often",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Rarely",
+                    "value": 4
+                },
+                {
+                    "text": "Never",
+                    "value": 5
+                }
             ]
         },
         {
@@ -298,24 +579,53 @@
             "category": "💖 Empathy",
             "dimension": "agreeableness",
             "options": [
-                { "text": "Never", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Always", "value": 5 }
+                {
+                    "text": "Never",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Always",
+                    "value": 5
+                }
             ]
         },
-
         {
             "text": "I worry about small things",
             "category": "🌊 Emotions",
             "dimension": "neuroticism",
             "options": [
-                { "text": "Never", "value": 5 },
-                { "text": "Rarely", "value": 4 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 2 },
-                { "text": "Always", "value": 1 }
+                {
+                    "text": "Never",
+                    "value": 5
+                },
+                {
+                    "text": "Rarely",
+                    "value": 4
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 2
+                },
+                {
+                    "text": "Always",
+                    "value": 1
+                }
             ]
         },
         {
@@ -324,11 +634,26 @@
             "dimension": "neuroticism",
             "reverse": true,
             "options": [
-                { "text": "Never", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Always", "value": 5 }
+                {
+                    "text": "Never",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Always",
+                    "value": 5
+                }
             ]
         },
         {
@@ -336,11 +661,26 @@
             "category": "🌊 Emotions",
             "dimension": "neuroticism",
             "options": [
-                { "text": "Never", "value": 5 },
-                { "text": "Rarely", "value": 4 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 2 },
-                { "text": "Always", "value": 1 }
+                {
+                    "text": "Never",
+                    "value": 5
+                },
+                {
+                    "text": "Rarely",
+                    "value": 4
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 2
+                },
+                {
+                    "text": "Always",
+                    "value": 1
+                }
             ]
         },
         {
@@ -349,11 +689,26 @@
             "dimension": "neuroticism",
             "reverse": true,
             "options": [
-                { "text": "Never", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Always", "value": 5 }
+                {
+                    "text": "Never",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Always",
+                    "value": 5
+                }
             ]
         },
         {
@@ -361,24 +716,53 @@
             "category": "🌊 Emotions",
             "dimension": "neuroticism",
             "options": [
-                { "text": "Never", "value": 5 },
-                { "text": "Rarely", "value": 4 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 2 },
-                { "text": "Always", "value": 1 }
+                {
+                    "text": "Never",
+                    "value": 5
+                },
+                {
+                    "text": "Rarely",
+                    "value": 4
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 2
+                },
+                {
+                    "text": "Always",
+                    "value": 1
+                }
             ]
         },
-
         {
             "text": "When I'm angry, I act quickly and decisively",
             "category": "🔴 Red - Power",
             "dimension": "color_red",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -386,11 +770,26 @@
             "category": "🔴 Red - Power",
             "dimension": "color_red",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -398,11 +797,26 @@
             "category": "🟡 Yellow - Joy",
             "dimension": "color_yellow",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -410,11 +824,26 @@
             "category": "🟡 Yellow - Joy",
             "dimension": "color_yellow",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -422,11 +851,26 @@
             "category": "🔵 Blue - Analysis",
             "dimension": "color_blue",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -434,11 +878,26 @@
             "category": "🔵 Blue - Analysis",
             "dimension": "color_blue",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -446,11 +905,26 @@
             "category": "🟢 Green - Peace",
             "dimension": "color_green",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -458,11 +932,26 @@
             "category": "🟢 Green - Peace",
             "dimension": "color_green",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -470,11 +959,26 @@
             "category": "🔴 Red - Power",
             "dimension": "color_red",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -482,11 +986,26 @@
             "category": "🟡 Yellow - Joy",
             "dimension": "color_yellow",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -494,11 +1013,26 @@
             "category": "🔵 Blue - Analysis",
             "dimension": "color_blue",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -506,11 +1040,26 @@
             "category": "🟢 Green - Peace",
             "dimension": "color_green",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -518,11 +1067,26 @@
             "category": "🔴 Red - Power",
             "dimension": "color_red",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -530,11 +1094,26 @@
             "category": "🟡 Yellow - Joy",
             "dimension": "color_yellow",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         },
         {
@@ -542,11 +1121,26 @@
             "category": "🔵 Blue - Analysis",
             "dimension": "color_blue",
             "options": [
-                { "text": "Does not apply to me", "value": 1 },
-                { "text": "Rarely", "value": 2 },
-                { "text": "Sometimes", "value": 3 },
-                { "text": "Often", "value": 4 },
-                { "text": "Applies to me completely", "value": 5 }
+                {
+                    "text": "Does not apply to me",
+                    "value": 1
+                },
+                {
+                    "text": "Rarely",
+                    "value": 2
+                },
+                {
+                    "text": "Sometimes",
+                    "value": 3
+                },
+                {
+                    "text": "Often",
+                    "value": 4
+                },
+                {
+                    "text": "Applies to me completely",
+                    "value": 5
+                }
             ]
         }
     ]
