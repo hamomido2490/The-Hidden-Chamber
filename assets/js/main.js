@@ -718,8 +718,6 @@ class HiddenChamber {
     // ─────────────────────────────────────────────────────────
     // Notifications
     // ─────────────────────────────────────────────────────────
- // Notifications
-// ─────────────────────────────────────────────────────────
 enableNotifications() {
     if (window.OneSignal) {
         this.initOneSignal();
@@ -741,6 +739,7 @@ initOneSignal() {
         OneSignal.showSlidedownPrompt();
     });
 }
+    
 document.addEventListener('DOMContentLoaded', () => {
     new HiddenChamber();
 });
