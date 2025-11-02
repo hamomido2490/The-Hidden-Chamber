@@ -718,17 +718,7 @@ class HiddenChamber {
     // ─────────────────────────────────────────────────────────
     // Notifications
     // ─────────────────────────────────────────────────────────
-   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "2d323442-8f3b-469b-b5ea-c4d4a7f47b2c",
-    });
-  });
-</script>
-    }
-}
+   main.js:721 Uncaught SyntaxError: Unexpected token '<' (at main.js:721:4)
 
 document.addEventListener('DOMContentLoaded', () => {
     new HiddenChamber();
